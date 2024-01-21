@@ -34,7 +34,7 @@ const replaceVal = (tempVal, orgVal) => {
 const server = http.createServer((req, res) => {
   if (req.url == "/") {
     requests(
-      "https://api.openweathermap.org/data/2.5/weather?q=Pune&appid=0440be1ba2d1c55f52e0c0e7f89e9f98"
+      "https://api.openweathermap.org/data/2.5/weather?q=Gadhinglaj&appid=0440be1ba2d1c55f52e0c0e7f89e9f98"
     )
       .on("data", (chunk) => {
         const objData = JSON.parse(chunk);
@@ -54,4 +54,6 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(2530, "127.0.0.1");
+server.listen(2530, "127.0.0.1", () => {
+  console.log("listening http://127.0.0.1:2530");
+});
