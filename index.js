@@ -18,7 +18,7 @@ const replaceVal = (tempVal, orgVal) => {
   let location = orgVal.name;
   let country = orgVal.sys.country;
   let status = orgVal.weather[0].main;
-//   console.log(temp, minTemp, maxTemp, location, country);
+  //   console.log(temp, minTemp, maxTemp, location, country);
 
   let newDataFile = tempVal.replace("{%tempVal%}", temp);
   newDataFile = newDataFile.replace("{%tempMin%}", minTemp);
@@ -32,10 +32,11 @@ const replaceVal = (tempVal, orgVal) => {
 };
 
 const server = http.createServer((req, res) => {
+  let locationName = "Gadhinglaj";
+
+  let link = `https://api.openweathermap.org/data/2.5/weather?q=${locationName}&appid=0440be1ba2d1c55f52e0c0e7f89e9f98`;
   if (req.url == "/") {
-    requests(
-      "https://api.openweathermap.org/data/2.5/weather?q=Gadhinglaj&appid=0440be1ba2d1c55f52e0c0e7f89e9f98"
-    )
+    requests(link)
       .on("data", (chunk) => {
         const objData = JSON.parse(chunk);
         const arrData = [objData];

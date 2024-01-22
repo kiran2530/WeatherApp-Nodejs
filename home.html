@@ -19,6 +19,7 @@
       body {
         background: #f3f2ef;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
@@ -235,21 +236,30 @@
     </div>
 
     <script>
+      let location_btn = document.getElementById("location-btn");
+      let locationName = document.getElementById("locationName");
+
+      location_btn.onclick = () => {
+        console.log("On click");
+      };
+
+      
       const curdate = document.getElementById("date");
       const weathercon = document.getElementById("weathercon");
 
       const tempStatus = "{%tempStatus%}";
-      if(tempStatus == "Sunny") {
-        weathercon.innerHTML = '<i class="fas fa-sun" style="color: #e9b10a"></i>'
-      }
-      else if(tempStatus == "Clouds") {
-        weathercon.innerHTML = '<i class="fas fa-cloud" style="color: #f1f2f6"></i>'
-      }
-      else if(tempStatus == "Rainy") {
-        weathercon.innerHTML = '<i class="fas fa-cloud-rain" style="color: #a4b0be"></i>'
-      }
-      else {
-        weathercon.innerHTML = '<i class="fas fa-cloud" style="color: #44c3de"></i>'
+      if (tempStatus == "Sunny") {
+        weathercon.innerHTML =
+          '<i class="fas fa-sun" style="color: #e9b10a"></i>';
+      } else if (tempStatus == "Clouds") {
+        weathercon.innerHTML =
+          '<i class="fas fa-cloud" style="color: #f1f2f6"></i>';
+      } else if (tempStatus == "Rainy") {
+        weathercon.innerHTML =
+          '<i class="fas fa-cloud-rain" style="color: #a4b0be"></i>';
+      } else {
+        weathercon.innerHTML =
+          '<i class="fas fa-cloud" style="color: #44c3de"></i>';
       }
 
       const getCurrentDay = () => {
