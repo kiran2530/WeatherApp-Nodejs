@@ -55,6 +55,6 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(2530, "127.0.0.1", () => {
+server.listen(process.env.PORT || 2530, "127.0.0.1", () => {
   console.log("listening http://127.0.0.1:2530");
 });
